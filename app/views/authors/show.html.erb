@@ -3,6 +3,21 @@
 <p>
   <strong>Name:</strong>
   <%= @author.name %>
+
+  <div id="books">
+    <% @author.books.each do |book| %>
+    <div class="rsbook" id="book-<%= book.id %>">
+      <ul>
+        <li>Title: <%= book.title %></li>
+        <li>Pages: <%= book.pages %></li>
+        <li>Publication Date: <%= book.pub_date %></li>
+        <li>
+          Other Authors: <%= (book.authors.pluck(:name) - [@author.name]).join(", ") %>
+        </li>
+      </ul>
+    </div>
+    <% end %>
+  </div>
 </p>
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
