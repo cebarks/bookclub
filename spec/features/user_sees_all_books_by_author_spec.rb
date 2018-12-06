@@ -6,7 +6,7 @@ RSpec.describe 'As a user' do
       before(:each) do
         @author = Author.create(name: "Sal")
         @author2 = Author.create(name: "Ian")
-
+        
         @book1 = Book.create(title: "Don't use scaffolds", pages: 120, pub_date: "2018", authors: [@author, @author2])
         @book2 = @author.books.create(title:"Say more words", pages: 420, pub_date: "2016")
 

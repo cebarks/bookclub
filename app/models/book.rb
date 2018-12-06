@@ -7,4 +7,8 @@ class Book < ApplicationRecord
   def self.top_3_books
     limit(3).joins(:reviews).order('reviews.rating').select(:'author.name')
   end
+
+  def avg_rating
+    reviews.average(:rating)
+  end
 end

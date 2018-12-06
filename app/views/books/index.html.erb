@@ -26,6 +26,7 @@
         <td><%= book.pages %></td>
         <td><%= book.pub_date %></td>
         <td><%= book.authors.pluck(:name).join(", ") %></td>
+        <td>Average Rating: <%= book.avg_rating %></td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -33,6 +34,13 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="ui container">
+  <div class="ui statistic">
+    <div class="value"><%=  %></div>
+    <div class="label"></div>
+  </div>
+</div>
 
 <br>
 
