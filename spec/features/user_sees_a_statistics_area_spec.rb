@@ -8,11 +8,10 @@ RSpec.describe 'As a visitor' do
       end
 
       it 'exists' do
-        save_and_open_page
         expect(page).to have_css('#statistics')
       end
 
-      it 'shows the top 3 authors' do
+      xit 'shows the top 3 authors' do
         within('.top-3-authors') do
           expect(page).to have_content(Book.top_3_books.pluck(:name).join(", "))
         end

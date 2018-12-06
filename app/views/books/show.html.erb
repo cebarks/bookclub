@@ -15,5 +15,34 @@
   <%= @book.pub_date %>
 </p>
 
+<p>
+  <strong>Authors:</strong>
+  <%= @book.authors.pluck(:name).join(", ") %>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Rating</th>
+      <th>User</th>
+      <th>Book</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <% @book.reviews.each do |review| %>
+    <tr>
+      <td><%= link_to review.title, review %></td>
+      <td><%= review.description %></td>
+      <td><%= review.rating %></td>
+      <td><%= link_to review.user.username, book_path(review.user) %></td>
+      <td><%= link_to review.book.title, book_path(review.book) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
