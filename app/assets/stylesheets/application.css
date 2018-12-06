@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+h1 {
+  text-align: center;
+}
+
+table {
+  border: 5px solid;
+  border-color: ;
+  margin: auto;
+}
+
+body {
+  background-color: #a7a7a7;
+}
+
+a {
+  color: blue;
+}
+
+td.book-data {
+  border: 2px solid;
+  margin-left: none;
+  margin-right: none;
+}
+
+.new-book-link {
+  text-align: center;
+}

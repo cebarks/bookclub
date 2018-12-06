@@ -16,13 +16,13 @@
   <tbody>
     <% @books.each do |book| %>
       <tr id="book-<%=book.id%>">
-        <td><%= book.title %></td>
-        <td><%= book.pages %></td>
-        <td><%= book.pub_date %></td>
-        <td><%= book.authors.pluck(:name).join(", ") %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='book-data'><%= book.title %></td>
+        <td class='book-data'><%= book.pages %></td>
+        <td class='book-data'><%= book.pub_date %></td>
+        <td class='book-data'><%= book.authors.pluck(:name).join(", ") %></td>
+        <td class=''><%= link_to 'Show', book %></td>
+        <td class=''><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td class=''><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<p class="new-book-link"><%= link_to 'New Book', new_book_path %></p>
