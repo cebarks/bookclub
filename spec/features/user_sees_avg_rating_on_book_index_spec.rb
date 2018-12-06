@@ -1,5 +1,5 @@
 RSpec.describe "when a user visits the book index page they" do
-    it 'can see the average book rating' do
+    xit 'can see the average book rating' do
         author = Author.create(name:"I am who am")
         book1 = author.books.create(title: "The Bible", pages: 666, pub_date: 50)
         user1 = User.create(username:"99Theses")
@@ -8,7 +8,10 @@ RSpec.describe "when a user visits the book index page they" do
         review = book1.reviews.create(title:"Predictable", description: "Totally expected the ending.", rating:2, user:user2, book:book1)
 
         visit books_path
-        
-        expect(page).to have_content('Average Rating: 3')
+
+        #fixme: needs to be fixed to check for css  
+        within("#rating") do
+            expect(page).to have_css('3')
+        end 
     end
 end
