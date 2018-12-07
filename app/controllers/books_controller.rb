@@ -46,6 +46,7 @@ class BooksController < ApplicationController
 
   # DELETE /books/1
   def destroy
+    @book.reviews.each(&:destroy)
     @book.destroy
     redirect_to books_url, notice: 'Book was successfully destroyed.'
   end
