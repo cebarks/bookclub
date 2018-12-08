@@ -17,7 +17,7 @@ RSpec.describe 'As a visitor' do
             end 
             expect(current_path).to eq('/books')
         end 
-        
+         
         it 'can link to the author index' do 
             visit '/books'
 
