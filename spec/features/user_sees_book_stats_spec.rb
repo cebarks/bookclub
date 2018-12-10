@@ -34,9 +34,10 @@ RSpec.describe 'As a visitor' do
         end
       end
 
-      xit "shows the overall average rating of all reviews" do
-        within("#average-review")
-        expect(page).to have_content("Average Rating of All Reviews: 3")
+      it "shows the overall average rating of all reviews" do
+        within("#average-review") do 
+          expect(page).to have_content("3")
+        end
       end
     end
   end

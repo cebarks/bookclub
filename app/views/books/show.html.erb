@@ -49,9 +49,9 @@
   </tbody>
 </table>
 
-<div id="top-3-reviews" class="ui container">
-  <div class="ui grid">
-    <div class="four wide column">
+<div class="ui container">
+  <div class="ui centered grid">
+    <div id="top-3-reviews" class="four wide column">
         <div class="ui header">
           Top 3 Reviews
         </div>
@@ -62,13 +62,22 @@
           <%end%>
         </div>
     </div>
-    <div class="four wide column">
-      <div class="ui header">Bottom 3 Reviews</div>
-      <div class="ui link list">
-        <a class="item">
-          <%= link_to "STUFF", book_path%>
-        </a>
+    <div id="bottom-3-reviews" class="four wide column">
+      <div class="ui header">
+        Bottom 3 Reviews
       </div>
+
+      <div class="ui link list">
+        <%Book.bottom_3_reviews(@book).each_with_index do |review, index|%>
+          <a class="item" href="/reviews/<%=review.id%>">
+            <%="#{index+1}: #{review.title}"%>
+          </a>
+        <%end%>
+      </div>
+    </div>
+    <div id="average-review" class="four wide column">
+      <div class="ui header">Average Rating</div>
+      <%=@book.avg_rating%>
     </div>
   </div>
 </div>
