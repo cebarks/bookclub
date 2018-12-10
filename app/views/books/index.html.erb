@@ -39,7 +39,13 @@
           </td>
           <td data-label="Pages"><%= book.pages %></td>
           <td data-label="Publication Date"><%= book.pub_date %></td>
-          <td data-label="Author(s)"><%= book.authors.pluck(:name).join(", ") %></td>
+          <td data-label="Author(s)">
+          <%book.authors.pluck(:id).each do |id|%>
+              <a href="/authors/<%=id%>">
+                <%= book.authors.find(id).name %>,
+              </a>
+          <%end%>
+          </td>
           <td id="rating" data-label="Average Rating">
             <div class="ui star rating" data-rating="<%= book.avg_rating %>" data-max-rating="5"></div> 
           </td>
