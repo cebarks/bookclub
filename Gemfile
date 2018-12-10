@@ -41,6 +41,7 @@ group :development, :test do
   gem 'faker'
   gem 'shoulda-matchers'
   gem 'table_print'
+  gem 'active_designer'
 end
 
 group :development do

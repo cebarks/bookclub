@@ -10,6 +10,18 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @users = User.all
+    @user = User.find(params[:id])
+
+    
+    if params[:dir] == "asc"
+      @reviews = User.find(params[:id]).sort_asc_reviews
+    elsif params[:dir] == "dec"
+      @reviews = User.find(params[:id]).sort_dec_reviews
+    else
+      @reviews = @user.review
+    end 
+
   end
 
   # GET /users/new
