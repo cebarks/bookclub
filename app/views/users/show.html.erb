@@ -21,12 +21,16 @@
 
 
 <div id="reviews">
-  <%@reviews.each do |review|%>
+  <%@reviews.each.with_index do |review, index|%>
+  <div id="review-<%= index %>">
     <ul>
-      <li><%=review.title%></li>
-      <li><%=review.description%></li>
-      <li><%=review.rating%></li>
+      <li><%= review.title %></li>
+      <li><%= review.description %></li>
+      <li><%= review.rating %></li>
     </ul>
+
+    <%= link_to 'Delete', review_path(review), method: :delete%>
+  </div>
   <%end%>
 </div>
 

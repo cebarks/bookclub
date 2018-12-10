@@ -15,8 +15,6 @@ RSpec.describe 'As a visitor' do
 
       expect(current_path).to eq(books_path)
 
-      save_and_open_page
-
       expect(page).to_not have_content(book1.title)
       expect(page).to_not have_content(book1.pages)
       expect(page).to_not have_content(book1.pub_date)
