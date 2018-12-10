@@ -7,13 +7,15 @@ RSpec.describe 'As a visitor' do
       author2 = Author.create(name: "Ian")
 
       book1 = Book.create(title: "The Future", pages: 200, pub_date: "2/2/2022", authors: [author1])
-      book2 = Book.create(title: "2: The Future", pages: 400, pub_date: "4/4/4044", authors: [author1, author2])
+      book2 = Book.create(title: "The 2 Future", pages: 400, pub_date: "4/4/4044", authors: [author1, author2])
 
       visit author_path(author1)
 
       click_link('Delete')
 
       expect(current_path).to eq(books_path)
+
+      save_and_open_page
 
       expect(page).to_not have_content(book1.title)
       expect(page).to_not have_content(book1.pages)
