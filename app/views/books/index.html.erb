@@ -45,7 +45,7 @@
           <%end.join(", ")%>
           </td>
           <td id="rating" data-label="Average Rating">
-            <div class="ui star rating" data-rating="<%= book.avg_rating %>" data-max-rating="5"></div> 
+            <div class="ui star rating" data-rating="<%= book.avg_rating %>" data-max-rating="5"></div>
           </td>
           <td><%= link_to 'Show', book %></td>
           <td><%= link_to 'Edit', edit_book_path(book) %></td>
@@ -64,7 +64,7 @@
 
   <br>
 
-  <%= link_to 'New Book', new_book_path %>
+  <%= link_to 'Add Book', new_book_path %>
 
   <script>
     $('.ui.rating')

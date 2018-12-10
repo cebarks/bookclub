@@ -22,25 +22,20 @@ class BooksController < ApplicationController
 
   # POST /books
   def create
-    @book = Book.new(book_params)
-
-    respond_to do |format|
-      if @book.save
-        redirect_to @book, notice: 'Book was successfully created.'
-      else
-        render :new
-      end
+    @book = Book.create!(book_params)
+    if @book.save
+      redirect_to @book, notice: 'Book was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /books/1
   def update
-    respond_to do |format|
-      if @book.update(book_params)
-        redirect_to @book, notice: 'Book was successfully updated.'
-      else
-        render :edit
-      end
+    if @book.update(book_params)
+      redirect_to @book, notice: 'Book was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -59,6 +54,12 @@ class BooksController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def book_params
-    params.require(:book).permit(:title, :pages, :pub_date)
+    parms = params.require(:book).permit(:title, :pages, :pub_date, :authors)
+    new_authors = params[:book][:author].split(", ").map do |name|
+      Author.find_or_create_by(name: name.titleize)
+    end
+    parms[:authors] = new_authors
+    parms[:title] = parms[:title].titleize
+    parms
   end
 end
