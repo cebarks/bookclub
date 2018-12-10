@@ -7,6 +7,6 @@ class User < ApplicationRecord
   end 
 
   def sort_dec_reviews
-    review.order(:updated_at).reverse_order
+    review.order(:updated_at).reverse_order 
   end 
 end
