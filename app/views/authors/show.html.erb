@@ -18,6 +18,32 @@
     </div>
     <% end %>
   </div>
+  <% if @author.top_review %>
+  <br>
+  <div id="top-review">
+    <p>Top Review</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @author.top_review.title %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @author.top_review.description %>
+    </p>
+    <p>
+      <strong>Rating:</strong>
+      <%= @author.top_review.rating %>
+    </p>
+    <p>
+      <strong>User:</strong>
+      <%= @author.top_review.user.username%>
+    </p>
+    <p>
+      <strong>Book:</strong>
+      <%= @author.top_review.book.title %>
+    </p>
+  </div>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
