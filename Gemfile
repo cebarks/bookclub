@@ -40,6 +40,7 @@ group :development, :test do
   gem 'pry'
   gem 'faker'
   gem 'shoulda-matchers'
+  gem 'simplecov'
   gem 'table_print'
   gem 'active_designer'
 end
