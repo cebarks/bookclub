@@ -17,12 +17,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @review.user %>
+  <%= @review.user.username%>
 </p>
 
 <p>
   <strong>Book:</strong>
-  <%= @review.book %>
+  <%= @review.book.title %>
 </p>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |
