@@ -21,6 +21,7 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
+    return render :new if Review.where(review_params[:user_id], review_params[:book_id])
     @review = Review.new(review_params)
 
     if @review.save
@@ -28,6 +29,7 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
+
   end
 
   # PATCH/PUT /reviews/1
@@ -41,8 +43,10 @@ class ReviewsController < ApplicationController
 
   # DELETE /reviews/1
   def destroy
-    user = @review.user
-    @review.destroy
+    review = Review.find(params[:id])
+    user = review.user
+
+    review.destroy
 
     redirect_to user_path(user), notice: 'Review was successfully destroyed.'
   end
