@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
   describe "When I visit a book's show page" do
-    xit "i can delete the book" do
+    it "i can delete the book" do
       book1 = Book.create(title: "Bible", pages: 666, pub_date: "12/12/2012")
       visit book_path(book1)
 
