@@ -11,4 +11,14 @@ class Book < ApplicationRecord
   def avg_rating
     reviews.average(:rating)
   end
+  
+  def self.top_3_reviews(book)
+    book_reviews = Book.find(book.id).reviews
+    book_reviews.order(:rating).reverse_order.first(3)
+  end 
+
+  def self.bottom_3_reviews(book)
+    book_reviews = Book.find(book.id).reviews
+    book_reviews.order(:rating).first(3)
+  end 
 end
