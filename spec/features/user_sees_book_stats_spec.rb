@@ -18,7 +18,7 @@ RSpec.describe 'As a visitor' do
         visit book_path(@book1)
       end
 
-      xit "shows the top three reviews" do
+      it "shows the top three reviews" do
         within("#top-3-reviews") do
           expect(page).to have_content(@review1.title)
           expect(page).to have_content(@review2.title)
@@ -26,7 +26,7 @@ RSpec.describe 'As a visitor' do
         end
       end
 
-      xit "shows the bottom three reviews " do
+      it "shows the bottom three reviews " do
         within("#bottom-3-reviews") do
           expect(page).to have_content(@review5.title)
           expect(page).to have_content(@review6.title)
