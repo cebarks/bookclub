@@ -10,8 +10,8 @@ RSpec.describe "As a visitor" do
       user1 = User.create(username: "sal")
 
       review1 = Review.create(user: user1, book: book1, title: "test review1", description:"Lorem ipsum1.", rating: rand(1..3))
-      review2 =Review.create(user: user1, book: book2, title: "test review2", description:"Lorem ipsum2.", rating: rand(1..3))
-      review3 =Review.create(user: user1, book: book3, title: "test review3", description:"Lorem ipsum3.", rating: rand(1..3))
+      review2 = Review.create(user: user1, book: book2, title: "test review2", description:"Lorem ipsum2.", rating: rand(1..3))
+      review3 = Review.create(user: user1, book: book3, title: "test review3", description:"Lorem ipsum3.", rating: rand(1..3))
 
       visit user_path(user1)
 
