@@ -1,4 +1,3 @@
-@@ -6,10 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
@@ -17,8 +16,13 @@ book2 = Book.create(title: "The Martian", authors:[james, asimov], pages:123, pu
 review1 = user1.review.create(title:"C-razy", description: "no way", rating:4, book:book1)
 review2 = user1.review.create(title:"I cried", description: "yes way", rating:4, book:book2)
 
+30.times do
+  User.create(username: Faker::Artist.name)
+end
+
 # Seed books and authors
 require 'json'
+require 'faker'
 js = JSON.load(File.new("db/books.json"))
 
 js.each do |book|
@@ -31,9 +35,9 @@ js.each do |book|
     pub_date: book['year']
   }
 
-  author_obj.books.create(params)
+  book_obj = author_obj.books.create(params)
 
   rand(1..3).times do
-    book.reviews.create()
+    book_obj.reviews.create(title: Faker::FamousLastWords.last_words, description: Faker::Lorem.paragraph, rating:rand(1..5), user: User.offset(rand(User.count)).first)
   end
 end
