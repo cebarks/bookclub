@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     @users = User.all
     @user = User.find(params[:id])
 
-    
     if params[:dir] == "asc"
       @reviews = User.find(params[:id]).sort_asc_reviews
     elsif params[:dir] == "dec"
