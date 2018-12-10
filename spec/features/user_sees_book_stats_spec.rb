@@ -7,13 +7,19 @@ RSpec.describe 'As a visitor' do
         @author1 = Author.create(name: "Sal")
         @book1 = @author1.books.create(title: "The Future", pages: 200, pub_date: "2/2/2022")
         @user1 = User.create(username: "anten")
+        @user2 = User.create(username: "anten2")
+        @user3 = User.create(username: "anten3")
+        @user4 = User.create(username: "anten4")
+        @user5 = User.create(username: "anten5")
+        @user6 = User.create(username: "anten6")
+        @user7 = User.create(username: "anten7")
         @review1 = @book1.reviews.create(title: "Very Futuristic1", description: "It came from the future1.", rating: 5, user: @user1)
-        @review2 = @book1.reviews.create(title: "Very Futuristic2", description: "It came from the future2.", rating: 5, user: @user1)
-        @review3 = @book1.reviews.create(title: "Very Futuristic3", description: "It came from the future3.", rating: 4, user: @user1)
-        @review4 = @book1.reviews.create(title: "Very Futuristic4", description: "It came from the future4.", rating: 3, user: @user1)
-        @review5 = @book1.reviews.create(title: "Very Futuristic5", description: "It came from the future5.", rating: 2, user: @user1)
-        @review6 = @book1.reviews.create(title: "Very Futuristic6", description: "It came from the future6.", rating: 2, user: @user1)
-        @review7 = @book1.reviews.create(title: "Very Futuristic7", description: "It came from the future7.", rating: 1, user: @user1)
+        @review2 = @book1.reviews.create(title: "Very Futuristic2", description: "It came from the future2.", rating: 5, user: @user2)
+        @review3 = @book1.reviews.create(title: "Very Futuristic3", description: "It came from the future3.", rating: 4, user: @user3)
+        @review4 = @book1.reviews.create(title: "Very Futuristic4", description: "It came from the future4.", rating: 3, user: @user4)
+        @review5 = @book1.reviews.create(title: "Very Futuristic5", description: "It came from the future5.", rating: 2, user: @user5)
+        @review6 = @book1.reviews.create(title: "Very Futuristic6", description: "It came from the future6.", rating: 2, user: @user6)
+        @review7 = @book1.reviews.create(title: "Very Futuristic7", description: "It came from the future7.", rating: 1, user: @user7)
 
         visit book_path(@book1)
       end
@@ -35,7 +41,7 @@ RSpec.describe 'As a visitor' do
       end
 
       it "shows the overall average rating of all reviews" do
-        within("#average-review") do 
+        within("#average-review") do
           expect(page).to have_content("3")
         end
       end
