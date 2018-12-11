@@ -5,7 +5,7 @@ class Book < ApplicationRecord
   has_many :reviews, :dependent => :destroy
 
   def self.top_3_books
-    limit(3).joins(:reviews).order('reviews.rating').select(:'author.name')
+    Book.joins(:reviews).select('books.*, avg(reviews.rating) as avg_book_rating').group("books.id").order("avg_book_rating").reverse_order.first(3)
   end
 
   def avg_rating
