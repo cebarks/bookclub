@@ -31,7 +31,7 @@
 
     <tbody>
       <% @books.each do |book| %>
-        <tr id="book-<%=book.id%>">
+        <tr class="book" id="book-<%=book.id%>">
           <td data-label="Title">
             <a href="/books/<%=book.id%>">
               <%= book.title %>
