@@ -11,11 +11,6 @@ RSpec.describe 'As a visitor' do
         expect(page).to have_css('#statistics')
       end
 
-      it 'shows the top 3 authors' do
-        within('.top-3-authors') do
-          expect(page).to have_content(Book.top_3_books.pluck(:name).join(", "))
-        end
-      end
     end
   end
 end

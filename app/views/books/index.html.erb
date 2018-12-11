@@ -55,10 +55,16 @@
     </tbody>
   </table>
 
-  <div class="ui container">
+  <div id="top-3-authors" class="ui container">
     <div class="ui statistic">
-      <div class="value"><%=  %></div>
-      <div class="label"></div>
+      <div>
+      # <% Book.top_3_books.each do |book| %>
+        <ul>
+          <li><%= book.title %></li>
+        </ul>
+      <% end %>
+      </div>
+      <div class="label">Top 3 Books</div>
     </div>
   </div>
 
