@@ -3,7 +3,16 @@ class BooksController < ApplicationController
 
   # GET /books
   def index
-    @books = Book.all
+    if params[:sort]
+      return Book.all unless params[:dir] == 'asc' || params[:dir] == 'desc'
+      @books = case params[:sort]
+      when 'rating' then Book.sort_by_average_rating(params[:dir])
+      when 'pages' then Book.sort_by_pages(params[:dir])
+      when 'reviews' then Book.sort_by_reviews(params[:dir])
+      end
+    else
+      @books = Book.all
+    end
   end
 
   # GET /books/1
