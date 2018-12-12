@@ -1,24 +1,51 @@
-# README
+# Book Club
+This is a website storing Books & Authors, and has the ability for users to review specific books.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Getting Started
 
-Things you may want to cover:
+Run Bundle 
+```ruby
+  bundle install
+  bundle update
+```
+Install Rails 5.1
+```ruby
+  gem install rails -v 5.1
+```
 
-* Ruby version
+Clone this repo into your desired directory and cd into it.
+  
+Start Server and visit page
+```ruby
+  rails s
+```
 
-* System dependencies
+```
+  open browser & visit localhost:3000
+```
 
-* Configuration
+### Default Database Configuration
 
-* Database creation
+To edit the books that are present on load:
+- open seed file & edit what's being created 
+- then run the following line
+```ruby
+  rake db:{drop,create,migrate}
+```
 
-* Database initialization
+To start with a blank table
+- Open seed file -> remove all files
+- Then run the following snippet
 
-* How to run the test suite
+```ruby
+rake db:{drop,create,migrate,seed}
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Testing
 
-* Deployment instructions
+To run tests after bundle
 
-* ...
+```ruby
+rspec
+```
+
