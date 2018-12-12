@@ -4,7 +4,7 @@ This is a website storing Books & Authors, and has the ability for users to revi
 ### Getting Started
 
 Run Bundle 
-```ruby
+```bash
   bundle install
   bundle update
 ```
@@ -16,7 +16,7 @@ Install Rails 5.1
 Clone this repo into your desired directory and cd into it.
   
 Start Server and visit page
-```ruby
+```bash
   rails s
 ```
 
@@ -29,17 +29,15 @@ Start Server and visit page
 To edit the books that are present on load:
 - open seed file & edit what's being created 
 - then run the following line
-```ruby
+```bash
+rake db:{drop,create,migrate,seed}
+```
+
+To start with a blank table, just run the following snippet
+```bash
   rake db:{drop,create,migrate}
 ```
 
-To start with a blank table
-- Open seed file -> remove all files
-- Then run the following snippet
-
-```ruby
-rake db:{drop,create,migrate,seed}
-```
 
 ### Testing
 
