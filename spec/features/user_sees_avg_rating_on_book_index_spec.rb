@@ -9,7 +9,7 @@ RSpec.describe "when a user visits the book index page they" do
 
         visit books_path
 
-        #fixme: needs to be fixed to check for css  
-            expect(find(".ui.star.rating")['data-rating']).to eq('3.0')
+        #fixme: needs to be fixed to check for css
+            expect(find(".ui.star.rating")['data-rating']).to eq('3')
     end
 end
