@@ -16,8 +16,6 @@ RSpec.describe "As a visitor" do
       username = "ian"
       description = "wooooooo"
 
-      # save_and_open_page
-
       fill_in "review[title]", with: title
       fill_in "review[username]", with: username
       fill_in "review[description]", with: description

@@ -2,18 +2,19 @@
 
 <h1>Books</h1>
 
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>
-    <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
-</head>
-
 <div id="statistics">
   <div class="top-3-authors">
     <p><%= %></p>
   </div>
+</div>
+
+<div id="sort_bar" class="ui six item menu">
+  <a href="/books?sort=rating&dir=asc" ><button class="ui button">Average Review Rating ASC</button></a>
+  <a href="/books?sort=rating&dir=desc" ><button class="ui button">Average Review Rating DESC</button></a>
+  <a href="/books?sort=pages&dir=asc" ><button class="ui button">Number of Pages ASC</button></a>
+  <a href="/books?sort=pages&dir=desc" ><button class="ui button">Number of Pages DESC</button></a>
+  <a href="/books?sort=reviews&dir=asc" ><button class="ui button">Number of Reviews ASC</button></a>
+  <a href="/books?sort=reviews&dir=desc" ><button class="ui button">Number of Reviews DESC</button></a>
 </div>
 
 <body>
@@ -31,17 +32,17 @@
 
     <tbody>
       <% @books.each do |book| %>
-        <tr class="book" id="book-<%=book.id%>">
-          <td data-label="Title">
-            <a href="/books/<%=book.id%>">
-              <%= book.title %>
-            </a>
-          </td>
-          <td data-label="Pages"><%= book.pages %></td>
-          <td data-label="Publication Date"><%= book.pub_date %></td>
-          <td data-label="Author(s)">
+      <tr class="book" id="book-<%=book.id%>">
+        <td data-label="Title">
+          <a href="/books/<%=book.id%>">
+            <%= book.title %>
+          </a>
+        </td>
+        <td data-label="Pages"><%= book.pages %></td>
+        <td data-label="Publication Date"><%= book.pub_date %></td>
+        <td data-label="Author(s)">
           <%=book.authors.pluck(:id).map do |id|%>
-                <%Author.find(id).name%>
+          <%Author.find(id).name%>
           <%end.join(", ")%>
           </td>
           <td id="rating" data-label="Average Rating">
