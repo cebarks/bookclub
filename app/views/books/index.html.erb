@@ -56,15 +56,31 @@
   </table>
 
   <div id="top-3-books" class="ui container">
-    <div class="ui statistic">
-      <div>
-      <% Book.top_3_books.each do |book| %>
-        <ul>
-          <li><%= book.title %></li>
-        </ul>
-      <% end %>
+    <div class="ui row">
+      <div class="ui statistic">
+        <div>
+        <% Book.top_3_books.each do |book| %>
+          <ul>
+            <li><%= book.title %></li>
+          </ul>
+        <% end %>
+        </div>
+        <div class="label">Top 3 Books</div>
       </div>
-      <div class="label">Top 3 Books</div>
+    </div>
+    <div class="ui row">
+      <div class="ui statistic">
+        <div id="top-3-authors">
+        <% Book.top_3_books.each do |book| %>
+          <%book.authors.each do |author|%>
+          <ul>
+            <li><%= author.name %></li>
+          </ul>
+          <% end %>
+        <% end %>
+        </div>
+        <div class="label">Top 3 Authors</div>
+      </div>
     </div>
   </div>
 
