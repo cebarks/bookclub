@@ -29,9 +29,8 @@ RSpec.describe 'As a visitor' do
         review2 = book2.reviews.create(title:"Predictable", description: "Totally expected the ending.", rating:4, user:user2, book:book2)
         review3 = book3.reviews.create(title:"I'm conflicted", description:"I both loved and hated it", rating:4, user:user3, book:book3)
         review4 = book4.reviews.create(title:"I'd love to talk about it", description:"But not with you", rating:1, user:user4, book:book4)
-        visit books_path
 
-        save_and_open_page
+        visit books_path
 
         within('#top-3-books') do
           expect(page).to have_content(book1.title)
