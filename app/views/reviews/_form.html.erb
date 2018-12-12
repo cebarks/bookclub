@@ -1,42 +1,31 @@
-<%= form_with(model: review, local: true) do |form| %>
-  <% if review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<%= form_for [@review] do |form| %>
+<% if review.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-      <ul>
-      <% review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% review.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :review_title %>
-  </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :review_description %>
-  </div>
+<%= form.label :title %>
+<%= form.text_field :title %>
 
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating, id: :review_rating %>
-  </div>
+<%= form.label :description %>
+<%= form.text_field :description %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :review_user_id %>
-  </div>
+<%= form.label :rating %>
+<%= form.select :rating, [[1,1],[2,2],[3,3],[4,4],[5,5]] %>
 
-  <div class="field">
-    <%= form.label :book_id %>
-    <%= form.text_field :book_id, id: :review_book_id %>
-  </div>
+<%= form.label :username %>
+<%= form.text_field :username, value: "" %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form.label :book %>
+<%= form.text_field :book, value: "" %>
+
+<%= form.submit %>
 <% end %>
